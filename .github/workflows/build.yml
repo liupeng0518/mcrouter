@@ -8,7 +8,8 @@ env:
   ApplicationName: mcrouter
   QuayImageName: liupeng0518/mcrouter
   AppVersion: "v2024.07.29.00"
-  DOCKERFILE_PATH: './mcrouter/scripts/docker/almalinux/Dockerfile'
+  DOCKERFILE_PATH: './mcrouter/scripts/docker/almalinux/'
+  DOCKERFILE: './mcrouter/scripts/docker/almalinux/Dockerfile'
 
 jobs:
   setup:
@@ -33,8 +34,8 @@ jobs:
     - name: Build and push multi-arch latest image
       uses: docker/build-push-action@v2
       with:
-        context: .
-        file: ${{ env.DOCKERFILE_PATH }}
+        context: ${{ env.DOCKERFILE_PATH }}
+        file: ${{ env.DOCKERFILE }}
         platforms: linux/amd64,linux/arm64
         push: true
         tags: ${{ env.QuayImageName }}:${{ env.AppVersion }}, ${{ env.QuayImageName }}:latest
