@@ -8,7 +8,10 @@ set -ex
 
 ## Install runtime dependencies
 rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
-
+dnf -y install epel-release \
+                dnf-plugins-core \
+                https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf config-manager --set-enabled powertools
 dnf update -y
 dnf install -y \
             double-conversion-devel \
