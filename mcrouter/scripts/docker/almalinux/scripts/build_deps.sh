@@ -7,6 +7,7 @@
 set -ex
 
 ## Install deps
+rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
 dnf -y install epel-release \
                 dnf-plugins-core \
                 https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
