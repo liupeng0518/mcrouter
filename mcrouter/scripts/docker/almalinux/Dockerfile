@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1.1-experimental
 
-FROM    almalinux:latest@sha256:a21996e1faa92e26a48c7fe3ae5652efc4b0eacb4ead710f0cca9167251dd27e as builder
+FROM    almalinux:8 as builder
 
 ## Set desired version before building
-ARG MCROUTER_VERSION
+ARG MCROUTER_VERSION=v2024.07.29.00
 
 ENV     MCROUTER_DIR            /usr/local/mcrouter
 ENV     INSTALL_DIR             $MCROUTER_DIR/install
