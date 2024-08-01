@@ -7,6 +7,8 @@
 set -ex
 
 ## Install runtime dependencies
+rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
+
 dnf update -y
 dnf install -y \
             double-conversion-devel \

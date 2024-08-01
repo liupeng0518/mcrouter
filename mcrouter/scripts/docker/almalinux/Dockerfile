@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.1-experimental
 
-FROM    almalinux:8 as builder
+FROM    almalinux:8.10 as builder
 
 ## Set desired version before building
 ARG MCROUTER_VERSION=v2024.07.29.00
@@ -19,7 +19,7 @@ ENV     BISON_VERSION="v3.8.2"
 RUN     --mount=type=bind,target=/tmp/scripts,source=scripts /tmp/scripts/build_deps.sh $MCROUTER_DIR
 RUN     --mount=type=bind,target=/tmp/scripts,source=scripts /tmp/scripts/build.sh
 
-FROM    almalinux:latest@sha256:a21996e1faa92e26a48c7fe3ae5652efc4b0eacb4ead710f0cca9167251dd27e
+FROM    almalinux:8.10
 
 ENV     MCROUTER_DIR            /usr/local/mcrouter
 ENV     INSTALL_DIR             $MCROUTER_DIR/install
